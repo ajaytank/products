@@ -1,6 +1,7 @@
 package hello.controller;
 
 import hello.dto.LoginRequest;
+import hello.model.User;
 import hello.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,5 +17,10 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest loginRequest) {
         return loginService.login(loginRequest);
+    }
+
+    @PostMapping("signUp")
+    public void signUp(@RequestBody User user) {
+        loginService.signUp(user);
     }
 }
