@@ -6,6 +6,8 @@ import hello.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ProductController {
 
@@ -22,5 +24,10 @@ public class ProductController {
     @GetMapping("/product/{id}")
     public ProductDTO getProductById(@PathVariable("id") Integer id) {
         return productService.getProductById(id);
+    }
+
+    @GetMapping("/product")
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
     }
 }
